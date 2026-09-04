@@ -46,8 +46,14 @@ Partial Class frmBlocNotas
         mnuZoomMas = New ToolStripMenuItem()
         mnuZoomMenos = New ToolStripMenuItem()
         mnuZoomRestablecer = New ToolStripMenuItem()
+        mnuHerramientas = New ToolStripMenuItem()
+        mnuBuscar = New ToolStripMenuItem()
+        mnuContarPalabras = New ToolStripMenuItem()
+        mnuContarCaracteres = New ToolStripMenuItem()
         AyudaToolStripMenuItem = New ToolStripMenuItem()
         mnuAcercaDe = New ToolStripMenuItem()
+        AngelicaMorenoToolStripMenuItem = New ToolStripMenuItem()
+        IvethToruñoToolStripMenuItem = New ToolStripMenuItem()
         tsPrincipal = New ToolStrip()
         tsbNuevo = New ToolStripButton()
         ToolStripSeparator1 = New ToolStripSeparator()
@@ -87,9 +93,9 @@ Partial Class frmBlocNotas
         dlgFuente = New FontDialog()
         dlgColor = New ColorDialog()
         tmrReloj = New Timer(components)
-        AngelicaMorenoToolStripMenuItem = New ToolStripMenuItem()
-        IvethToruñoToolStripMenuItem = New ToolStripMenuItem()
-        HerramientasToolStripMenuItem = New ToolStripMenuItem()
+        RichTextBox1 = New RichTextBox()
+        txtBuscar = New TextBox()
+        btnBuscar = New Button()
         mnuPrincipal.SuspendLayout()
         tsPrincipal.SuspendLayout()
         cmsTexto.SuspendLayout()
@@ -98,7 +104,7 @@ Partial Class frmBlocNotas
         ' 
         ' mnuPrincipal
         ' 
-        mnuPrincipal.Items.AddRange(New ToolStripItem() {mnuSalir, EdiciónToolStripMenuItem, FormatoToolStripMenuItem, VerToolStripMenuItem, HerramientasToolStripMenuItem, AyudaToolStripMenuItem})
+        mnuPrincipal.Items.AddRange(New ToolStripItem() {mnuSalir, EdiciónToolStripMenuItem, FormatoToolStripMenuItem, VerToolStripMenuItem, mnuHerramientas, AyudaToolStripMenuItem})
         mnuPrincipal.Location = New Point(0, 0)
         mnuPrincipal.Name = "mnuPrincipal"
         mnuPrincipal.Size = New Size(800, 24)
@@ -247,6 +253,32 @@ Partial Class frmBlocNotas
         mnuZoomRestablecer.Size = New Size(167, 22)
         mnuZoomRestablecer.Text = "Restablecer zoom"
         ' 
+        ' mnuHerramientas
+        ' 
+        mnuHerramientas.DropDownItems.AddRange(New ToolStripItem() {mnuBuscar, mnuContarPalabras, mnuContarCaracteres})
+        mnuHerramientas.Name = "mnuHerramientas"
+        mnuHerramientas.Size = New Size(90, 20)
+        mnuHerramientas.Text = "Herramientas"
+        ' 
+        ' mnuBuscar
+        ' 
+        mnuBuscar.AutoToolTip = True
+        mnuBuscar.Name = "mnuBuscar"
+        mnuBuscar.Size = New Size(166, 22)
+        mnuBuscar.Text = "Buscar"
+        ' 
+        ' mnuContarPalabras
+        ' 
+        mnuContarPalabras.Name = "mnuContarPalabras"
+        mnuContarPalabras.Size = New Size(166, 22)
+        mnuContarPalabras.Text = "Contar palabras "
+        ' 
+        ' mnuContarCaracteres
+        ' 
+        mnuContarCaracteres.Name = "mnuContarCaracteres"
+        mnuContarCaracteres.Size = New Size(166, 22)
+        mnuContarCaracteres.Text = "Contar caracteres"
+        ' 
         ' AyudaToolStripMenuItem
         ' 
         AyudaToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {mnuAcercaDe, AngelicaMorenoToolStripMenuItem, IvethToruñoToolStripMenuItem})
@@ -257,8 +289,20 @@ Partial Class frmBlocNotas
         ' mnuAcercaDe
         ' 
         mnuAcercaDe.Name = "mnuAcercaDe"
-        mnuAcercaDe.Size = New Size(180, 22)
+        mnuAcercaDe.Size = New Size(165, 22)
         mnuAcercaDe.Text = "Acerca de"
+        ' 
+        ' AngelicaMorenoToolStripMenuItem
+        ' 
+        AngelicaMorenoToolStripMenuItem.Name = "AngelicaMorenoToolStripMenuItem"
+        AngelicaMorenoToolStripMenuItem.Size = New Size(165, 22)
+        AngelicaMorenoToolStripMenuItem.Text = "Angelica Moreno"
+        ' 
+        ' IvethToruñoToolStripMenuItem
+        ' 
+        IvethToruñoToolStripMenuItem.Name = "IvethToruñoToolStripMenuItem"
+        IvethToruñoToolStripMenuItem.Size = New Size(165, 22)
+        IvethToruñoToolStripMenuItem.Text = "Iveth Toruño"
         ' 
         ' tsPrincipal
         ' 
@@ -522,29 +566,38 @@ Partial Class frmBlocNotas
         tmrReloj.Enabled = True
         tmrReloj.Interval = 1000
         ' 
-        ' AngelicaMorenoToolStripMenuItem
+        ' RichTextBox1
         ' 
-        AngelicaMorenoToolStripMenuItem.Name = "AngelicaMorenoToolStripMenuItem"
-        AngelicaMorenoToolStripMenuItem.Size = New Size(180, 22)
-        AngelicaMorenoToolStripMenuItem.Text = "Angelica Moreno"
+        RichTextBox1.Location = New Point(0, 392)
+        RichTextBox1.Name = "RichTextBox1"
+        RichTextBox1.Size = New Size(800, 33)
+        RichTextBox1.TabIndex = 5
+        RichTextBox1.Text = ""
         ' 
-        ' IvethToruñoToolStripMenuItem
+        ' txtBuscar
         ' 
-        IvethToruñoToolStripMenuItem.Name = "IvethToruñoToolStripMenuItem"
-        IvethToruñoToolStripMenuItem.Size = New Size(180, 22)
-        IvethToruñoToolStripMenuItem.Text = "Iveth Toruño"
+        txtBuscar.Location = New Point(108, 399)
+        txtBuscar.Name = "txtBuscar"
+        txtBuscar.Size = New Size(251, 23)
+        txtBuscar.TabIndex = 7
         ' 
-        ' HerramientasToolStripMenuItem
+        ' btnBuscar
         ' 
-        HerramientasToolStripMenuItem.Name = "HerramientasToolStripMenuItem"
-        HerramientasToolStripMenuItem.Size = New Size(90, 20)
-        HerramientasToolStripMenuItem.Text = "Herramientas"
+        btnBuscar.Location = New Point(365, 399)
+        btnBuscar.Name = "btnBuscar"
+        btnBuscar.Size = New Size(81, 26)
+        btnBuscar.TabIndex = 8
+        btnBuscar.Text = "Buscar"
+        btnBuscar.UseVisualStyleBackColor = True
         ' 
         ' frmBlocNotas
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(btnBuscar)
+        Controls.Add(txtBuscar)
+        Controls.Add(RichTextBox1)
         Controls.Add(stsInferior)
         Controls.Add(rtbDocumento)
         Controls.Add(tsPrincipal)
@@ -628,8 +681,14 @@ Partial Class frmBlocNotas
     Friend WithEvents cmsPegar As ToolStripMenuItem
     Friend WithEvents cmsSeleccionarTodo As ToolStripMenuItem
     Friend WithEvents cmsFuente As ToolStripMenuItem
-    Friend WithEvents HerramientasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mnuHerramientas As ToolStripMenuItem
     Friend WithEvents AngelicaMorenoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents IvethToruñoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mnuBuscar As ToolStripMenuItem
+    Friend WithEvents mnuContarPalabras As ToolStripMenuItem
+    Friend WithEvents mnuContarCaracteres As ToolStripMenuItem
+    Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents txtBuscar As TextBox
+    Friend WithEvents btnBuscar As Button
 
 End Class

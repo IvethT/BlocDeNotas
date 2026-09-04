@@ -245,6 +245,18 @@ Public Class frmBlocNotas
     Private Sub dlgGuardar_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles dlgGuardar.FileOk
 
     End Sub
+
+    Private Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs) Handles RichTextBox1.TextChanged
+
+    End Sub
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
+
+    End Sub
+
+    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+
+    End Sub
 End Class
 
 
